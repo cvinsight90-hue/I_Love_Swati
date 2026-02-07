@@ -359,6 +359,619 @@ section {
     transform: scale(1.05);
 }
 
+/* Propose Day Section */
+.propose-day {
+    background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+    padding: 120px 0;
+}
+
+.propose-content {
+    display: flex;
+    justify-content: center;
+}
+
+.question-card {
+    max-width: 700px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 60px 40px;
+    border-radius: 30px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.hearts-falling {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.propose-question {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.5rem;
+    color: #e74c3c;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 2;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.propose-text {
+    font-size: 1.3rem;
+    color: #333;
+    line-height: 2;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 2;
+}
+
+.propose-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+    position: relative;
+    z-index: 2;
+}
+
+.propose-btn {
+    padding: 20px 50px;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.yes-btn {
+    background: linear-gradient(135deg, #ff6b9d 0%, #c06c84 100%);
+    color: #fff;
+    box-shadow: 0 10px 30px rgba(255, 107, 157, 0.4);
+}
+
+.yes-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 15px 40px rgba(255, 107, 157, 0.6);
+}
+
+.no-btn {
+    background: #95a5a6;
+    color: #fff;
+    box-shadow: 0 10px 30px rgba(149, 165, 166, 0.4);
+}
+
+.no-btn:hover {
+    transform: scale(0.9);
+}
+
+.propose-result {
+    margin-top: 30px;
+    font-size: 1.5rem;
+    color: #e74c3c;
+    font-weight: 600;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.propose-result.show {
+    opacity: 1;
+    animation: celebrate 1s ease;
+}
+
+@keyframes celebrate {
+    0%, 100% { transform: scale(1); }
+    25% { transform: scale(1.2) rotate(-5deg); }
+    50% { transform: scale(1.3) rotate(5deg); }
+    75% { transform: scale(1.2) rotate(-5deg); }
+}
+
+/* Chocolate Day Section */
+.chocolate-day {
+    background: linear-gradient(135deg, #8e44ad 0%, #3498db 100%);
+    padding: 120px 0;
+}
+
+.chocolate-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+}
+
+.chocolate-box {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    padding: 50px;
+    border-radius: 30px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.chocolate-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.chocolate-piece {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, #6d4c41 0%, #4e342e 100%);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.chocolate-piece:hover {
+    transform: translateY(-10px) rotate(5deg);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.chocolate-piece.special-piece {
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+}
+
+.chocolate-piece.eaten {
+    opacity: 0.3;
+    transform: scale(0.8);
+}
+
+.chocolate-instruction {
+    text-align: center;
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+.chocolate-message {
+    max-width: 600px;
+    text-align: center;
+}
+
+.chocolate-message p {
+    font-size: 1.4rem;
+    line-height: 2;
+    color: #fff;
+}
+
+/* Teddy Day Section */
+.teddy-day {
+    background: linear-gradient(135deg, #ffa07a 0%, #ff6347 100%);
+    padding: 120px 0;
+}
+
+.teddy-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+}
+
+.teddy-bear {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.teddy-bear:hover {
+    transform: scale(1.1);
+}
+
+.teddy-bear.hugged {
+    animation: hugAnimation 1s ease;
+}
+
+@keyframes hugAnimation {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.3) rotate(10deg); }
+}
+
+.teddy-face {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+
+.teddy-head {
+    width: 150px;
+    height: 150px;
+    background: #d2691e;
+    border-radius: 50%;
+    position: relative;
+    margin: 0 auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.teddy-ear {
+    width: 60px;
+    height: 60px;
+    background: #d2691e;
+    border-radius: 50%;
+    position: absolute;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.left-ear {
+    top: 10px;
+    left: 10px;
+}
+
+.right-ear {
+    top: 10px;
+    right: 10px;
+}
+
+.teddy-eyes {
+    display: flex;
+    justify-content: space-around;
+    padding: 40px 30px 0;
+}
+
+.teddy-eye {
+    width: 20px;
+    height: 20px;
+    background: #333;
+    border-radius: 50%;
+}
+
+.teddy-nose {
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 10px;
+}
+
+.teddy-smile {
+    width: 40px;
+    height: 20px;
+    border: 3px solid #333;
+    border-top: none;
+    border-radius: 0 0 40px 40px;
+    margin: 10px auto 0;
+}
+
+.teddy-message {
+    max-width: 700px;
+    text-align: center;
+}
+
+.teddy-text {
+    font-size: 1.3rem;
+    line-height: 2;
+    color: #fff;
+    margin-bottom: 30px;
+}
+
+.teddy-quote {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.6rem;
+    color: #fff;
+    font-style: italic;
+    margin-bottom: 30px;
+}
+
+.hug-teddy-btn {
+    padding: 20px 40px;
+    font-size: 1.2rem;
+    background: #fff;
+    color: #ff6347;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.hug-teddy-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Hug Day Section */
+.hug-day {
+    background: linear-gradient(135deg, #00b4db 0%, #0083b0 100%);
+    padding: 120px 0;
+}
+
+.hug-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+}
+
+.hug-animation {
+    text-align: center;
+}
+
+.hug-figures {
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    margin-bottom: 30px;
+    transition: all 1s ease;
+}
+
+.hug-figures.hugging {
+    gap: 0;
+}
+
+.hug-figures.hugging .figure {
+    animation: hugMotion 1s ease;
+}
+
+@keyframes hugMotion {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+.figure {
+    font-size: 5rem;
+    transition: all 1s ease;
+}
+
+.start-hug-btn {
+    padding: 20px 40px;
+    font-size: 1.3rem;
+    background: #fff;
+    color: #0083b0;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.start-hug-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.hug-message {
+    max-width: 700px;
+    text-align: center;
+}
+
+.hug-text {
+    font-size: 1.3rem;
+    line-height: 2;
+    color: #fff;
+    margin-bottom: 30px;
+}
+
+.hug-reasons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.hug-reason {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 15px;
+    font-size: 1.2rem;
+    color: #fff;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.hug-reason:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateX(10px);
+}
+
+/* Kiss Day Section */
+.kiss-day {
+    background: linear-gradient(135deg, #ee0979 0%, #ff6a00 100%);
+    padding: 120px 0;
+}
+
+.kiss-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+}
+
+.kiss-animation {
+    position: relative;
+    height: 200px;
+}
+
+.floating-kisses {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+.kiss {
+    font-size: 4rem;
+    animation: kissFloat 3s ease-in-out infinite;
+}
+
+.kiss:nth-child(1) { animation-delay: 0s; }
+.kiss:nth-child(2) { animation-delay: 0.5s; }
+.kiss:nth-child(3) { animation-delay: 1s; }
+.kiss:nth-child(4) { animation-delay: 1.5s; }
+.kiss:nth-child(5) { animation-delay: 2s; }
+
+@keyframes kissFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(15deg); }
+}
+
+.kiss-message {
+    max-width: 700px;
+    text-align: center;
+}
+
+.kiss-text {
+    font-size: 1.4rem;
+    line-height: 2;
+    color: #fff;
+    margin-bottom: 30px;
+}
+
+.kiss-quote {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.7rem;
+    color: #fff;
+    font-style: italic;
+    margin-bottom: 40px;
+}
+
+.kiss-types {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.kiss-type {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 15px;
+    font-size: 1.2rem;
+    color: #fff;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.kiss-type:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+}
+
+.send-kiss-btn {
+    padding: 20px 40px;
+    font-size: 1.2rem;
+    background: #fff;
+    color: #ee0979;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.send-kiss-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Valentine's Day Section */
+.valentines-day {
+    background: linear-gradient(135deg, #f5576c 0%, #e74c3c 100%);
+    padding: 150px 0;
+}
+
+.valentines-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+}
+
+.heart-explosion {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.valentines-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 4rem;
+    color: #fff;
+    margin-bottom: 30px;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.valentines-text {
+    font-size: 1.5rem;
+    line-height: 2;
+    color: #fff;
+    margin-bottom: 40px;
+}
+
+.valentines-text strong {
+    font-size: 1.8rem;
+    color: #ffd700;
+}
+
+.valentines-poem {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 20px;
+    margin-bottom: 40px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.valentines-poem p {
+    font-size: 1.3rem;
+    line-height: 2;
+    color: #fff;
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+.valentines-declaration {
+    margin-bottom: 40px;
+}
+
+.declaration-text {
+    font-size: 1.4rem;
+    line-height: 2;
+    color: #fff;
+}
+
+.declaration-text strong {
+    font-size: 1.6rem;
+    color: #ffd700;
+}
+
+.celebrate-btn {
+    padding: 25px 50px;
+    font-size: 1.5rem;
+    background: #ffd700;
+    color: #e74c3c;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.celebrate-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    background: #fff;
+}
+
 /* Love Letter Section */
 .love-letter {
     background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
@@ -757,6 +1370,15 @@ video {
     margin: 0 auto;
 }
 
+.promise-intro {
+    text-align: center;
+    font-size: 1.3rem;
+    line-height: 2;
+    color: #333;
+    margin-bottom: 40px;
+    font-style: italic;
+}
+
 .promise-list {
     display: flex;
     flex-direction: column;
@@ -992,6 +1614,41 @@ video {
     .rose {
         font-size: 4rem;
     }
+    
+    .propose-question {
+        font-size: 2.5rem;
+    }
+    
+    .propose-buttons {
+        flex-direction: column;
+    }
+    
+    .question-card {
+        padding: 40px 30px;
+    }
+    
+    .chocolate-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+    }
+    
+    .chocolate-piece {
+        width: 80px;
+        height: 80px;
+        font-size: 2.5rem;
+    }
+    
+    .teddy-face {
+        transform: scale(0.8);
+    }
+    
+    .valentines-title {
+        font-size: 3rem;
+    }
+    
+    .valentines-poem p {
+        font-size: 1.1rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1026,5 +1683,78 @@ video {
     
     .rose {
         font-size: 3rem;
+    }
+    
+    .propose-question {
+        font-size: 2rem;
+    }
+    
+    .propose-btn {
+        padding: 15px 30px;
+        font-size: 1.2rem;
+    }
+    
+    .chocolate-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .chocolate-piece {
+        width: 70px;
+        height: 70px;
+        font-size: 2rem;
+    }
+    
+    .chocolate-box {
+        padding: 30px 20px;
+    }
+    
+    .teddy-face {
+        transform: scale(0.6);
+    }
+    
+    .figure {
+        font-size: 3rem;
+    }
+    
+    .hug-figures {
+        gap: 30px;
+    }
+    
+    .kiss {
+        font-size: 3rem;
+    }
+    
+    .valentines-title {
+        font-size: 2.5rem;
+    }
+    
+    .valentines-poem {
+        padding: 20px;
+    }
+    
+    .valentines-poem p {
+        font-size: 1rem;
+    }
+    
+    .celebrate-btn {
+        padding: 20px 35px;
+        font-size: 1.2rem;
+    }
+}
+
+/* Additional Animations for Interactive Elements */
+@keyframes fadeOut {
+    from { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    to { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+}
+
+@keyframes fall {
+    0% {
+        top: -50px;
+        opacity: 1;
+    }
+    100% {
+        top: 100%;
+        opacity: 0.3;
     }
 }

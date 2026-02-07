@@ -16,6 +16,317 @@ envelope.addEventListener("click", function () {
   envelope.classList.toggle("open");
 });
 
+// Propose Day Interaction
+const yesBtn = document.getElementById("yesBtn");
+const noBtn = document.getElementById("noBtn");
+const proposeResult = document.getElementById("proposeResult");
+const heartsFalling = document.getElementById("heartsFalling");
+
+if (yesBtn && noBtn) {
+  yesBtn.addEventListener("click", function () {
+    proposeResult.innerHTML =
+      "🎉 Yay! You made me the happiest person alive! 💕";
+    proposeResult.classList.add("show");
+
+    // Create falling hearts
+    for (let i = 0; i < 30; i++) {
+      setTimeout(() => {
+        createFallingHeart();
+      }, i * 100);
+    }
+
+    // Hide buttons
+    yesBtn.style.display = "none";
+    noBtn.style.display = "none";
+  });
+
+  noBtn.addEventListener("click", function () {
+    // Make the No button run away
+    const x = Math.random() * (window.innerWidth - 200);
+    const y = Math.random() * (window.innerHeight - 100);
+
+    noBtn.style.position = "fixed";
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+
+    proposeResult.innerHTML =
+      '😊 The "No" button is shy... try clicking "Yes" instead! 💕';
+    proposeResult.classList.add("show");
+  });
+}
+
+function createFallingHeart() {
+  const heart = document.createElement("div");
+  heart.innerHTML = "❤️";
+  heart.style.position = "absolute";
+  heart.style.left = Math.random() * 100 + "%";
+  heart.style.top = "-50px";
+  heart.style.fontSize = Math.random() * 2 + 1 + "rem";
+  heart.style.animation = "fall 3s linear forwards";
+  heart.style.pointerEvents = "none";
+
+  if (heartsFalling) {
+    heartsFalling.appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 3000);
+  }
+}
+
+// Chocolate Day Interaction
+document.querySelectorAll(".chocolate-piece").forEach((chocolate) => {
+  chocolate.addEventListener("click", function () {
+    if (!this.classList.contains("eaten")) {
+      const message = this.getAttribute("data-message");
+
+      // Show message
+      const messageBox = document.createElement("div");
+      messageBox.textContent = message;
+      messageBox.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: rgba(255, 255, 255, 0.95);
+                color: #333;
+                padding: 30px 40px;
+                border-radius: 20px;
+                font-size: 1.3rem;
+                z-index: 2000;
+                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+                animation: fadeIn 0.3s ease;
+                max-width: 80%;
+                text-align: center;
+            `;
+
+      document.body.appendChild(messageBox);
+
+      // Mark as eaten
+      this.classList.add("eaten");
+
+      setTimeout(() => {
+        messageBox.style.animation = "fadeOut 0.3s ease";
+        setTimeout(() => messageBox.remove(), 300);
+      }, 2500);
+    }
+  });
+});
+
+// Teddy Day Interaction
+const teddyBear = document.getElementById("teddyBear");
+const hugTeddyBtn = document.getElementById("hugTeddyBtn");
+
+if (hugTeddyBtn && teddyBear) {
+  hugTeddyBtn.addEventListener("click", function () {
+    teddyBear.classList.add("hugged");
+
+    const hugMessage = document.createElement("div");
+    hugMessage.innerHTML =
+      "🤗 *Teddy hugs you back* 💕<br>Sending you all the warmth and love!";
+    hugMessage.style.cssText = `
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 107, 157, 0.95);
+            color: white;
+            padding: 30px 40px;
+            border-radius: 20px;
+            font-size: 1.4rem;
+            z-index: 2000;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 0.3s ease;
+            text-align: center;
+        `;
+
+    document.body.appendChild(hugMessage);
+
+    setTimeout(() => {
+      teddyBear.classList.remove("hugged");
+      hugMessage.style.animation = "fadeOut 0.3s ease";
+      setTimeout(() => hugMessage.remove(), 300);
+    }, 2000);
+  });
+}
+
+// Hug Day Interaction
+const startHugBtn = document.getElementById("startHugBtn");
+const hugFigures = document.getElementById("hugFigures");
+
+if (startHugBtn && hugFigures) {
+  startHugBtn.addEventListener("click", function () {
+    hugFigures.classList.add("hugging");
+    startHugBtn.textContent = "🤗 Hugging... 💕";
+
+    setTimeout(() => {
+      hugFigures.classList.remove("hugging");
+      startHugBtn.textContent = "Click for a Virtual Hug! 💕";
+
+      const hugMessage = document.createElement("div");
+      hugMessage.innerHTML =
+        "💕 *Warm Hug Sent* 💕<br>Wishing I could hug you for real!";
+      hugMessage.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: rgba(0, 131, 176, 0.95);
+                color: white;
+                padding: 30px 40px;
+                border-radius: 20px;
+                font-size: 1.4rem;
+                z-index: 2000;
+                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+                animation: fadeIn 0.3s ease;
+                text-align: center;
+            `;
+
+      document.body.appendChild(hugMessage);
+
+      setTimeout(() => {
+        hugMessage.style.animation = "fadeOut 0.3s ease";
+        setTimeout(() => hugMessage.remove(), 300);
+      }, 2000);
+    }, 2000);
+  });
+}
+
+// Kiss Day Interaction
+const sendKissBtn = document.getElementById("sendKissBtn");
+
+if (sendKissBtn) {
+  sendKissBtn.addEventListener("click", function () {
+    // Create flying kiss animation
+    for (let i = 0; i < 20; i++) {
+      setTimeout(() => {
+        const kiss = document.createElement("div");
+        kiss.innerHTML = "💋";
+        kiss.style.cssText = `
+                    position: fixed;
+                    left: 50%;
+                    top: 50%;
+                    font-size: 2rem;
+                    z-index: 2000;
+                    pointer-events: none;
+                    animation: flyKiss 2s ease-out forwards;
+                `;
+
+        const angle = (Math.PI * 2 * i) / 20;
+        kiss.style.setProperty("--angle", angle + "rad");
+
+        document.body.appendChild(kiss);
+
+        setTimeout(() => kiss.remove(), 2000);
+      }, i * 50);
+    }
+
+    const kissMessage = document.createElement("div");
+    kissMessage.innerHTML = "💋 Kisses sent with love! 💋<br>Catch them all!";
+    kissMessage.style.cssText = `
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(238, 9, 121, 0.95);
+            color: white;
+            padding: 30px 40px;
+            border-radius: 20px;
+            font-size: 1.4rem;
+            z-index: 2001;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 0.3s ease;
+            text-align: center;
+        `;
+
+    document.body.appendChild(kissMessage);
+
+    setTimeout(() => {
+      kissMessage.style.animation = "fadeOut 0.3s ease";
+      setTimeout(() => kissMessage.remove(), 300);
+    }, 2500);
+  });
+}
+
+// Add flyKiss animation
+const kissStyle = document.createElement("style");
+kissStyle.textContent = `
+    @keyframes flyKiss {
+        0% {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
+        100% {
+            transform: translate(
+                calc(-50% + cos(var(--angle)) * 300px),
+                calc(-50% + sin(var(--angle)) * 300px)
+            ) scale(1.5);
+            opacity: 0;
+        }
+    }
+`;
+document.head.appendChild(kissStyle);
+
+// Valentine's Day Celebration
+const celebrateBtn = document.getElementById("celebrateBtn");
+const heartExplosion = document.getElementById("heartExplosion");
+
+if (celebrateBtn && heartExplosion) {
+  celebrateBtn.addEventListener("click", function () {
+    // Create massive heart explosion
+    for (let i = 0; i < 50; i++) {
+      setTimeout(() => {
+        const heart = document.createElement("div");
+        heart.innerHTML = "❤️";
+        heart.style.cssText = `
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    font-size: ${Math.random() * 3 + 1}rem;
+                    animation: explodeHeart ${
+                      Math.random() * 2 + 2
+                    }s ease-out forwards;
+                    pointer-events: none;
+                `;
+
+        const angle = (Math.PI * 2 * i) / 50;
+        const distance = Math.random() * 300 + 200;
+        heart.style.setProperty("--angle", angle + "rad");
+        heart.style.setProperty("--distance", distance + "px");
+
+        heartExplosion.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 4000);
+      }, i * 30);
+    }
+
+    celebrateBtn.textContent = "🎉 Celebrating Our Love! 🎉";
+    celebrateBtn.style.animation = "pulse 1s ease-in-out infinite";
+  });
+}
+
+// Add explodeHeart animation
+const explodeStyle = document.createElement("style");
+explodeStyle.textContent = `
+    @keyframes explodeHeart {
+        0% {
+            transform: translate(-50%, -50%) scale(0);
+            opacity: 1;
+        }
+        50% {
+            opacity: 1;
+        }
+        100% {
+            transform: translate(
+                calc(-50% + cos(var(--angle)) * var(--distance)),
+                calc(-50% + sin(var(--angle)) * var(--distance))
+            ) scale(1.5) rotate(720deg);
+            opacity: 0;
+        }
+    }
+`;
+document.head.appendChild(explodeStyle);
+
 // Quiz Functionality
 let currentQuestion = 1;
 const quizQuestions = document.querySelectorAll(".quiz-question");
