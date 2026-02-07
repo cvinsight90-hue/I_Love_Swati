@@ -1504,6 +1504,28 @@ video {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     padding: 150px 0;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.background-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 1;
+    opacity: 0.15;
+    object-fit: cover;
+    filter: blur(2px);
+}
+
+.final-message .container {
+    position: relative;
+    z-index: 2;
 }
 
 .big-heart {
